@@ -1,8 +1,3 @@
-"""
-services/calendar_service.py
-Connects to Google Calendar via OAuth and extracts Zoom meetings.
-"""
-
 import os
 import re
 import logging
@@ -61,10 +56,7 @@ class GoogleCalendarService:
         return build("calendar", "v3", credentials=creds)
 
     def get_zoom_meetings(self) -> list[dict]:
-        """
-        Returns upcoming calendar events that contain a Zoom link.
-        Looks DAYS_AHEAD days into the future.
-        """
+        
         now = datetime.now(timezone.utc)
         end = now + timedelta(days=DAYS_AHEAD)
 
@@ -94,7 +86,6 @@ class GoogleCalendarService:
         return zoom_meetings
 
     def _parse_zoom_event(self, event: dict) -> dict | None:
-        """Extract Zoom meeting details from a calendar event. Returns None if not a Zoom event."""
         description = event.get("description", "") or ""
         location = event.get("location", "") or ""
         combined_text = f"{description} {location}"

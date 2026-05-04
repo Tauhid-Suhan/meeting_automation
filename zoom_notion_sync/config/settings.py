@@ -1,8 +1,3 @@
-"""
-config/settings.py
-Loads all environment variables with validation.
-"""
-
 import os
 from dotenv import load_dotenv
 

@@ -5,10 +5,6 @@ Fetches scheduled Zoom meetings from Google Calendar,
 saves them to Notion, and after each call collects
 transcript, recording link, attendees, duration, and meeting info.
 
-Run:
-    python main.py --sync       # Sync upcoming Zoom meetings to Notion
-    python main.py --post-call  # Process completed calls (recordings, transcripts)
-    python main.py --all        # Do both
 """
 
 import argparse
